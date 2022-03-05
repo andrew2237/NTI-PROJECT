@@ -1,0 +1,49 @@
+<div class="container me-5">
+  <div class="card w-500 mt-5 text-center">
+    <div class="card-body">
+      <img src="https://ntiproject.herokuapp.com/{{ book.image }}" alt="..." />
+      <h5 class="card-title" style="text-transform: capitalize">
+        {{ book.title }}
+      </h5>
+      <h6 class="card-text" style="text-transform: capitalize">
+        {{ book.author }}
+      </h6>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+        asperiores corporis, tenetur saepe quis amet totam, reiciendis tempore
+        dolorem cupiditate accusamus, eius consequatur. Veritatis, hic expedita
+        doloribus consectetur facilis officiis.
+      </p>
+      <h6>Book Value is {{ book.value }}</h6>
+      <h6>Book Quantity is {{ book.quantity }}</h6>
+      <form
+        #buyForm="ngForm"
+        (ngSubmit)="buyProduct(buyForm, book._id, quantity.value)"
+      >
+        <div class="d-flex flex-row align-items-center mb-4">
+          <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+          <div class="form-outline flex-fill mb-0">
+            <label class="form-label fw-bold" for="form3Example1c"
+              >Select Quantity you need
+            </label>
+            <select
+              name="category"
+              class="form-control my-3"
+              ngModel
+              #quantity="ngModel"
+            >
+              <option [ngValue]="1">1</option>
+              <option [ngValue]="2">2</option>
+              <option [ngValue]="3">3</option>
+              <option [ngValue]="4">4</option>
+            </select>
+          </div>
+        </div>
+
+        <button routerLink="/home" class="btn btn-primary">Buy Book</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Delete and edit finish -->

@@ -1,0 +1,28 @@
+<app-slider></app-slider>
+<div class="container mt-5">
+  <div class="row">
+    <div class="card col-4 m-2" style="width: 18rem" *ngFor="let cat of cats">
+      <img
+        src="https://m.media-amazon.com/images/I/415Vok2xosL.jpg"
+        class="card-img-top mt-1"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title" style="text-transform: capitalize">
+          {{ cat.catgory }}
+        </h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <button routerLink="/category/{{ cat.catgory }}" class="btn btn-primary">
+          Show More ->
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- *ngFor="let book of books" -->
+<!-- routerLink="/bookCategory/{{ book._id }}"
+ -->
+<!-- {{ book.title }} -->
