@@ -1,0 +1,16 @@
+const express = require("express");
+const app = express();
+const cors = require("cors");
+app.use(cors());
+require("dotenv").config();
+require("../../database/conn");
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+const usersRouter = require("../../routes/users.routes");
+app.use("/api/users", usersRouter);
+const bookRouter = require("../../routes/book.routes");
+app.use("/api/book", bookRouter);
+const userRouter = require("../../routes/user.routes");
+app.use("/api/user", userRouter);
+app.get("*", (req, res) => res.send({ error: "invalid url" }));
+module.exports = app;
